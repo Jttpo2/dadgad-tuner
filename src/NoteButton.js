@@ -5,7 +5,7 @@ export class NoteButton extends Component {
     super(props);
 
     this.state = {
-      displayName: this.props.note[0],
+      displayName: this.props.note.simpleName,
       isActive: false
 
     };

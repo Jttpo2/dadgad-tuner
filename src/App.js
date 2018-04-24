@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { Tuner } from './Tuner.js';
+import Note from './Note.js';
 
 class App extends Component {
 
@@ -25,4 +26,7 @@ class App extends Component {
 
 export default App;
 
-const notes = ['D1', 'A1', 'D2', 'G1', 'A2', 'D3'];
+const noteNames = ['D1', 'A1', 'D2', 'G1', 'A2', 'D3'];
+const notes = noteNames.map((noteName) => {
+  return new Note(noteName);
+});
