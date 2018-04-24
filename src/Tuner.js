@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
 
 import { NoteButton } from './NoteButton.js';
+import SoundLibrary from './SoundLibrary.js';
 
 export class Tuner extends Component {
   constructor(props) {
     super(props);
 
-    // this.noteButtonClicked = this.noteButtonClicked.bind(this);
+    this.state = {
+      testNote: 'C4'
+    }
+
+    this.soundLibrary = new SoundLibrary();
   }
 
   noteButtonClicked(id, event) {
     console.log(id);
+
+  }
+
+  componentDidMount() {
+    let note = this.state.testNote;
+    let c4Audio = document.getElementById(note);
+    c4Audio.src = this.soundLibrary.getPathTo(note);
+
+    c4Audio.load();
+    c4Audio.play();
   }
 
   render() {
@@ -24,7 +39,12 @@ export class Tuner extends Component {
     });
 
     return (
-      <div>{noteButtons}</div>
+      <div>
+        {/* <div>
+        </div> */}
+        <audio id={this.state.testNote}></audio>
+        {noteButtons}
+      </div>
     );
   }
 }
