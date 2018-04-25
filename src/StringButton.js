@@ -30,10 +30,14 @@ export class StringButton extends Component {
     }
   }
 
-  const diameter = 4.2;
-  const activeDiameter = 5.5;
-  const fontSize = diameter * 3/5;
-  const activeFontSize = activeDiameter * 3/5;
+  const activeScalar = 1.3;
+  const diameter = 11;
+  const activeDiameter = diameter * activeScalar;
+  const sizeUnit = 'vh';
+  const fontSize =  diameter * 5/11;
+  const activeFontSize = fontSize * activeScalar;
+  const fonstSizeUnit = 'vh';
+
   const transitionTime = 0.3;
   const initialMargin = 0.2;
   // initial margin - (width change (and/or height change)/2), so here 100px is initial margin, and the change is (100px final W/H - 10px initial W/H = 90px change, so 100px - (90px / 2 [= 45px]) = 55px)
@@ -48,16 +52,16 @@ export class StringButton extends Component {
     stringButton: {
       background: Constants.stringButtonColor,
       // flex: 0.07,
-      width: diameter + 'rem',
-      height: diameter + 'rem',
+      width: diameter + sizeUnit,
+      height: diameter + sizeUnit,
       borderRadius: '50%',
       borderStyle: 'none',
 
-      fontSize: fontSize + 'em',
+      fontSize: fontSize + fonstSizeUnit,
       color: 'white',
       fontFamily: 'helvetica, sans-serif',
 
-      margin: initialMargin + 'rem',
+      margin: initialMargin + sizeUnit,
 
       transition: 'all ' + transitionTime + 's',
       transformOrigin: '50% 50%',
@@ -66,10 +70,10 @@ export class StringButton extends Component {
 
     },
     active: {
-      width: activeDiameter + 'rem',
-      height: activeDiameter + 'rem',
-      margin: transitionedMargin + 'rem',
-      fontSize: activeFontSize + 'rem',
+      width: activeDiameter + sizeUnit,
+      height: activeDiameter + sizeUnit,
+      margin: transitionedMargin + sizeUnit,
+      fontSize: activeFontSize + fonstSizeUnit,
       boxShadow: activeShadowLength + 'px ' + activeShadowLength + 'px ' + activeBlur + 'px ' + shadowColor
     }
 
