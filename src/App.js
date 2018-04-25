@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Constants from './Constants.js';
 import InstrumentString from './InstrumentString.js';
 import Note from './Note.js';
-import { Tuner } from './Tuner.js';
+import Tuner from './Tuner.js';
 
 class App extends Component {
   constructor(props) {

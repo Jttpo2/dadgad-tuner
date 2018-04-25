@@ -1,8 +1,9 @@
+import Radium from 'radium';
 import React, { Component } from 'react';
 
 import Constants from './Constants.js';
 
-export class StringButton extends Component {
+class StringButton extends Component {
   constructor(props) {
     super(props);
 
@@ -16,10 +17,15 @@ export class StringButton extends Component {
   };
 
   render() {
-    let style = Object.assign({},
+    // let style = Object.assign({},
+    //   styles.stringButton,
+    //   this.props.isActive && styles.active
+    // );
+
+    let style = [
       styles.stringButton,
       this.props.isActive && styles.active
-    );
+    ]
 
     return (
       <button
@@ -66,8 +72,14 @@ export class StringButton extends Component {
       transition: 'all ' + transitionTime + 's',
       transformOrigin: '50% 50%',
 
-      boxShadow: shadowLength + 'px ' + shadowLength + 'px ' + blur + 'px ' + shadowColor
+      boxShadow: shadowLength + 'px ' + shadowLength + 'px ' + blur + 'px ' + shadowColor,
 
+      // ':active': {
+      //   outline: 'none'
+      // }
+      ':focus': {
+        outline: 'none'
+      }
     },
     active: {
       width: activeDiameter + sizeUnit,
@@ -78,3 +90,5 @@ export class StringButton extends Component {
     }
 
   }
+
+export default Radium(StringButton);

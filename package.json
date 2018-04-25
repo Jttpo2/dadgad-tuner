@@ -4,6 +4,7 @@
   "private": true,
   "description": "Dadgad guitar tuner",
   "dependencies": {
+    "radium": "^0.24.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
@@ -14,6 +15,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-    "author": "John Petersson",
-    "license": "ISC"
+  "author": "John Petersson",
+  "license": "ISC"
 }
