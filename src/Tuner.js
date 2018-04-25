@@ -1,11 +1,12 @@
+import Radium from 'radium';
 import React, { Component } from 'react';
 
 import Constants from './Constants.js';
-import { StringButton } from './StringButton.js';
+import StringButton from './StringButton.js';
 import SoundLibrary from './SoundLibrary.js';
 import SoundPlayer from './SoundPlayer.js';
 
-export class Tuner extends Component {
+class Tuner extends Component {
   constructor(props) {
     super(props);
 
@@ -80,11 +81,11 @@ export class Tuner extends Component {
 
     return (
       <div style={styles.container}>
-        <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle}>Stop</button>
+        <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle} key='stopbutton'>Stop</button>
         <div style={styles.stringButtonContainer}>
           {stringButtons}
         </div>
-        <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle}>Next</button>
+        <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle} key='nextButton'>Next</button>
       </div>
     );
   }
@@ -124,7 +125,11 @@ const styles = {
     borderStyle: 'none',
     color: Constants.primaryColor,
     fontSize: Constants.controlButtonFontSize,
-    background: 'none'
+    background: 'none',
+
+    ':focus': {
+      outline: 'none'
+    }
   },
   stopButton: {
     // left: buttonSideMargin,
@@ -135,3 +140,5 @@ const styles = {
     // background: 'grey'
   }
 }
+
+export default Radium(Tuner);
