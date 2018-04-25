@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import Constants from './Constants.js';
-import Note from './Note.js';
-import { NoteButton } from './NoteButton.js';
+import { StringButton } from './StringButton.js';
 import SoundLibrary from './SoundLibrary.js';
 import SoundPlayer from './SoundPlayer.js';
 
@@ -11,33 +10,32 @@ export class Tuner extends Component {
     super(props);
 
     this.state = {
-      testNote: new Note('D1'),
       isPlaying: false,
-      currentNoteIndex: 0
+      currentString: null
     }
 
     this.soundLibrary = new SoundLibrary();
     this.soundPlayer = new SoundPlayer();
   }
 
-  noteButtonClicked(id, event) {
-    this.playNote(id);
+  stringButtonClicked(string, event) {
+    this._play(string);
   }
 
   nextClicked() {
-    this.nextNote();
+    this._nextString();
   }
 
   stopClicked() {
     this.stop();
   }
 
-  playNote(note) {
+  _play(string) {
     this.setState({
-      isPlaying: true,
-      currentNoteIndex: this.props.notes.indexOf(note)
+      currentString: string,
+      isPlaying: true
     });
-    this.soundPlayer.playAndLoop(this.soundLibrary.getPathTo(note));
+    this.soundPlayer.playAndLoop(this.soundLibrary.getPathTo(string.note));
   }
 
   stop() {
@@ -47,17 +45,12 @@ export class Tuner extends Component {
     this.soundPlayer.stop();
   }
 
-  nextNote() {
-    let currentNoteIndex = this.state.currentNoteIndex;
-    currentNoteIndex++;
-
-    if (currentNoteIndex === this.props.notes.length) currentNoteIndex = 0;
-    this.setState({
-        currentNoteIndex: currentNoteIndex
-    });
-
-    console.log(currentNoteIndex);
-    this.playNote(this.props.notes[currentNoteIndex]);
+  _nextString() {
+    let currentStringIndex = this.state.currentString ? this.props.strings.indexOf(this.state.currentString) : -1;      
+    let stringToPlayIndex = currentStringIndex + 1;
+    if (stringToPlayIndex === this.props.strings.length) stringToPlayIndex = 0;
+    console.log(stringToPlayIndex);
+    this._play(this.props.strings[stringToPlayIndex]);
   }
 
   componentDidMount() {
@@ -65,20 +58,23 @@ export class Tuner extends Component {
   }
 
   render() {
-    let noteButtons = [];
-    this.props.notes.forEach((note) => {
-        noteButtons.push(
-          <NoteButton
-            note={note}
-            key={note.fullName}
-            onClick={this.noteButtonClicked.bind(this, note)}/>);
+    let stringButtons = [];
+    this.props.strings.forEach((string) => {
+        stringButtons.push(
+          <StringButton
+            string={string}
+            isActive={this.state.currentString === string}
+            isPlaying={this.state.currentString === string && this.state.isPlaying}
+            key={string.id}
+            handleButtonClick={this.stringButtonClicked.bind(this, string)}
+          />);
     });
 
     return (
       <div style={styles.container}>
         <button onClick={this.stopClicked.bind(this)} style={styles.stopButton}>Stop</button>
-        <div style={styles.noteButtonContainer}>
-          {noteButtons}
+        <div style={styles.stringButtonContainer}>
+          {stringButtons}
         </div>
         <button onClick={this.nextClicked.bind(this)} style={styles.nextButton}>Next</button>
       </div>
@@ -93,17 +89,19 @@ const styles = {
     height: '100%',
     display: 'flex',
     flexFlow: 'row',
+    // justifyContent: 'space-evenly',
+    alignItems: 'center',
 
     flex: 1
   },
-  noteButtonContainer: {
+  stringButtonContainer: {
     // background: 'blue',
-    // height: '100%',
+    height: '98%',
 
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    // justifyContent: 'space-around',
+    // justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
     alignItems: 'center',
     flex: 0.5
   },

@@ -5,7 +5,7 @@ export default class Constants {
     // #f55555
   }
 
-  static get noteButtonColor() {
+  static get stringButtonColor() {
     return '#f52222';
     // return '#fa1111';
   }
