@@ -63,7 +63,8 @@ export class Tuner extends Component {
         stringButtons.push(
           <StringButton
             string={string}
-            // TODO: isActive={}
+            isActive={this.state.currentString === string}
+            isPlaying={this.state.currentString === string && this.state.isPlaying}
             key={string.id}
             handleButtonClick={this.stringButtonClicked.bind(this, string)}
           />);

@@ -16,15 +16,22 @@ export class StringButton extends Component {
   };
 
   render() {
+    let style = Object.assign({},
+      styles.stringButton,
+      this.props.isActive && styles.active
+    );
+
     return (
       <button
-        style={styles.stringButton}
+        // style={this.props.isActive ? styles.active : styles.stringButton }
+        style={style}
         onClick={this.onClick}>{this.props.string.note.simpleName}</button>
       );
     }
   }
 
-  const diameter = '5rem';
+  const diameter = '4.5rem';
+  const activeDiameter = '6.5rem';
   const styles = {
     stringButton: {
       background: Constants.stringButtonColor,
@@ -37,5 +44,10 @@ export class StringButton extends Component {
       color: 'white',
       fontFamily: 'helvetica, sans-serif'
 
+    },
+    active: {
+      width: activeDiameter,
+      height: activeDiameter
     }
+
   }
