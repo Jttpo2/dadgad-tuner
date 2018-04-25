@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [0.2.1] - 2018-04-25
+### Added
+- Better dynamic sizing for string buttons and their labels.
+
 ## [0.2.0] - 2018-04-25
 ### Added
 - Basic setup.
