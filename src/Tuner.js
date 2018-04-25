@@ -89,17 +89,19 @@ const styles = {
     height: '100%',
     display: 'flex',
     flexFlow: 'row',
+    // justifyContent: 'space-evenly',
+    alignItems: 'center',
 
     flex: 1
   },
   stringButtonContainer: {
     // background: 'blue',
-    // height: '100%',
+    height: '98%',
 
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    // justifyContent: 'space-around',
+    // justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
     alignItems: 'center',
     flex: 0.5
   },
