@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 import Constants from './Constants.js';
-// import Note from './Note.js';
-// import InstrumentString from './InstrumentString.js';
 import { StringButton } from './StringButton.js';
 import SoundLibrary from './SoundLibrary.js';
 import SoundPlayer from './SoundPlayer.js';
@@ -31,11 +29,6 @@ export class Tuner extends Component {
   stopClicked() {
     this.stop();
   }
-
-  // _playString(index) {
-  //
-  //   this._play(this.props.strings[index]);
-  // }
 
   _play(string) {
     this.setState({
