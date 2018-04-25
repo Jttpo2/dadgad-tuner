@@ -46,7 +46,7 @@ export class Tuner extends Component {
   }
 
   _nextString() {
-    let currentStringIndex = this.state.currentString ? this.props.strings.indexOf(this.state.currentString) : -1;      
+    let currentStringIndex = this.state.currentString ? this.props.strings.indexOf(this.state.currentString) : -1;
     let stringToPlayIndex = currentStringIndex + 1;
     if (stringToPlayIndex === this.props.strings.length) stringToPlayIndex = 0;
     console.log(stringToPlayIndex);
@@ -54,10 +54,18 @@ export class Tuner extends Component {
   }
 
   componentDidMount() {
-
   }
 
   render() {
+    const stopButtonStyle = Object.assign({},
+      styles.controlButton,
+      styles.stopButton
+    );
+    const nextButtonStyle = Object.assign({},
+      styles.controlButton,
+      styles.nextButton
+    );
+
     let stringButtons = [];
     this.props.strings.forEach((string) => {
         stringButtons.push(
@@ -72,11 +80,11 @@ export class Tuner extends Component {
 
     return (
       <div style={styles.container}>
-        <button onClick={this.stopClicked.bind(this)} style={styles.stopButton}>Stop</button>
+        <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle}>Stop</button>
         <div style={styles.stringButtonContainer}>
           {stringButtons}
         </div>
-        <button onClick={this.nextClicked.bind(this)} style={styles.nextButton}>Next</button>
+        <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle}>Next</button>
       </div>
     );
   }
@@ -105,30 +113,25 @@ const styles = {
     alignItems: 'center',
     flex: 0.5
   },
-  stopButton: {
-    // height: '50%',
-    // width: '20%',
+  controlButton : {
     position: 'relative',
+    height: '100%',
     flex: 0.5,
+    // width: '20%',
     // top: '50%',
     // transform: 'translateY(-50%)',
-    // left: buttonSideMargin,
 
+    borderStyle: 'none',
     color: Constants.primaryColor,
-    fontSize: Constants.controlButtonFontSize
-    // background: 'green'
+    fontSize: Constants.controlButtonFontSize,
+    background: 'none'
+  },
+  stopButton: {
+    // left: buttonSideMargin,
+    // background: 'green',
   },
   nextButton: {
-    position: 'relative',
-    flex: 0.5,
-    // height: '50%',
-    // width: '20%',
-    // top: '50%',
-    // transform: 'translateY(-50%)',
     // right: buttonSideMargin,
-
-    color: Constants.primaryColor,
-    fontSize: Constants.controlButtonFontSize
     // background: 'grey'
   }
 }
