@@ -11,7 +11,7 @@ export class Tuner extends Component {
 
     this.state = {
       isPlaying: false,
-      currentString: this.props.strings[0]
+      currentString: null
     }
 
     this.soundLibrary = new SoundLibrary();
@@ -46,7 +46,7 @@ export class Tuner extends Component {
   }
 
   _nextString() {
-    let currentStringIndex = this.props.strings.indexOf(this.state.currentString);
+    let currentStringIndex = this.state.currentString ? this.props.strings.indexOf(this.state.currentString) : -1;      
     let stringToPlayIndex = currentStringIndex + 1;
     if (stringToPlayIndex === this.props.strings.length) stringToPlayIndex = 0;
     console.log(stringToPlayIndex);
