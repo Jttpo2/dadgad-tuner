@@ -25,15 +25,15 @@ export class StringButton extends Component {
       <button
         // style={this.props.isActive ? styles.active : styles.stringButton }
         style={style}
-        onClick={this.onClick}>{this.props.string.note.simpleName}</button>
+        onClick={this.onClick}><strong>{this.props.string.note.simpleName}</strong></button>
       );
     }
   }
 
   const diameter = 4.2;
   const activeDiameter = 5.5;
-  const fontSize = diameter * 3/4;
-  const activeFontSize = activeDiameter * 3/4;
+  const fontSize = diameter * 3/5;
+  const activeFontSize = activeDiameter * 3/5;
   const transitionTime = 0.3;
   const initialMargin = 0.2;
   // initial margin - (width change (and/or height change)/2), so here 100px is initial margin, and the change is (100px final W/H - 10px initial W/H = 90px change, so 100px - (90px / 2 [= 45px]) = 55px)
