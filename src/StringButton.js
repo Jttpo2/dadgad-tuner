@@ -1,7 +1,9 @@
+import Radium from 'radium';
 import React, { Component } from 'react';
 
 import Constants from './Constants.js';
 
+@Radium
 export class StringButton extends Component {
   constructor(props) {
     super(props);
