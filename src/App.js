@@ -3,20 +3,21 @@ import React, { Component } from 'react';
 // import './App.css';
 
 import Constants from './Constants.js';
-import { Tuner } from './Tuner.js';
+import InstrumentString from './InstrumentString.js';
 import Note from './Note.js';
+import { Tuner } from './Tuner.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this._notes = this.initNotes();
+    this._strings = this.initStrings();
   }
 
-  initNotes() {
-    let noteNames = ['D1', 'A1', 'D2', 'G1', 'A2', 'D3'];
-    return noteNames.map((noteName) => {
-      return new Note(noteName);
+  initStrings() {
+    let stringNames = ['D1', 'A1', 'D2', 'G1', 'A2', 'D3'];
+    return stringNames.map((stringName) => {
+      return new InstrumentString(new Note(stringName));
     });
   }
 
@@ -27,7 +28,7 @@ class App extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1 style={styles.title}>DADGAD tuner</h1>
         </header>
-        <Tuner notes={this._notes}></Tuner>
+        <Tuner strings={this._strings}></Tuner>
       </div>
     );
   }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import Constants from './Constants.js';
-import Note from './Note.js';
-import { NoteButton } from './NoteButton.js';
+// import Note from './Note.js';
+// import InstrumentString from './InstrumentString.js';
+import { StringButton } from './StringButton.js';
 import SoundLibrary from './SoundLibrary.js';
 import SoundPlayer from './SoundPlayer.js';
 
@@ -11,33 +12,38 @@ export class Tuner extends Component {
     super(props);
 
     this.state = {
-      testNote: new Note('D1'),
       isPlaying: false,
-      currentNoteIndex: 0
+      currentStringIndex: 0
     }
 
     this.soundLibrary = new SoundLibrary();
     this.soundPlayer = new SoundPlayer();
   }
 
-  noteButtonClicked(id, event) {
-    this.playNote(id);
+  stringButtonClicked(string, event) {
+    this._play(string);
   }
 
   nextClicked() {
-    this.nextNote();
+    this._nextString();
   }
 
   stopClicked() {
     this.stop();
   }
 
-  playNote(note) {
+  _playString(index) {
     this.setState({
-      isPlaying: true,
-      currentNoteIndex: this.props.notes.indexOf(note)
+      currentStringIndex: index
     });
-    this.soundPlayer.playAndLoop(this.soundLibrary.getPathTo(note));
+    this._play(this.props.strings[index]);
+  }
+
+  _play(string) {
+    this.setState({
+      isPlaying: true
+    });
+    this.soundPlayer.playAndLoop(this.soundLibrary.getPathTo(string.note));
   }
 
   stop() {
@@ -47,17 +53,22 @@ export class Tuner extends Component {
     this.soundPlayer.stop();
   }
 
-  nextNote() {
-    let currentNoteIndex = this.state.currentNoteIndex;
-    currentNoteIndex++;
+  _nextString() {
+    let currentStringIndex = this.state.currentStringIndex;
+    currentStringIndex++;
 
-    if (currentNoteIndex === this.props.notes.length) currentNoteIndex = 0;
-    this.setState({
-        currentNoteIndex: currentNoteIndex
-    });
+    if (currentStringIndex === this.props.strings.length) currentStringIndex = 0;
+    // this.setState({
+    //     currentStringIndex: currentStringIndex
+    // });
 
-    console.log(currentNoteIndex);
-    this.playNote(this.props.notes[currentNoteIndex]);
+    console.log(currentStringIndex);
+    // this._play(this.props.strings[currentStringIndex]);
+    this._playString(currentStringIndex);
+  }
+
+  _getCurrentNote() {
+    return this.props.strings[this.state.currentStringIndex];
   }
 
   componentDidMount() {
@@ -65,20 +76,22 @@ export class Tuner extends Component {
   }
 
   render() {
-    let noteButtons = [];
-    this.props.notes.forEach((note) => {
-        noteButtons.push(
-          <NoteButton
-            note={note}
-            key={note.fullName}
-            onClick={this.noteButtonClicked.bind(this, note)}/>);
+    let stringButtons = [];
+    this.props.strings.forEach((string) => {
+        stringButtons.push(
+          <StringButton
+            string={string}
+            // TODO: isActive={}
+            key={string.id}
+            handleButtonClick={this.stringButtonClicked.bind(this, string)}
+          />);
     });
 
     return (
       <div style={styles.container}>
         <button onClick={this.stopClicked.bind(this)} style={styles.stopButton}>Stop</button>
-        <div style={styles.noteButtonContainer}>
-          {noteButtons}
+        <div style={styles.stringButtonContainer}>
+          {stringButtons}
         </div>
         <button onClick={this.nextClicked.bind(this)} style={styles.nextButton}>Next</button>
       </div>
@@ -96,7 +109,7 @@ const styles = {
 
     flex: 1
   },
-  noteButtonContainer: {
+  stringButtonContainer: {
     // background: 'blue',
     // height: '100%',
 

@@ -2,34 +2,32 @@ import React, { Component } from 'react';
 
 import Constants from './Constants.js';
 
-export class NoteButton extends Component {
+export class StringButton extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      displayName: this.props.note.simpleName,
       isActive: false
-
     };
   }
 
   onClick = (event) => {
-    this.props.onClick(event);
+    this.props.handleButtonClick(event);
   };
-  
+
   render() {
     return (
       <button
-        style={styles.noteButton}
-        onClick={this.onClick}>{this.state.displayName}</button>
+        style={styles.stringButton}
+        onClick={this.onClick}>{this.props.string.note.simpleName}</button>
       );
     }
   }
 
   const diameter = '5rem';
   const styles = {
-    noteButton: {
-      background: Constants.noteButtonColor,
+    stringButton: {
+      background: Constants.stringButtonColor,
       // flex: 0.07,
       width: diameter,
       height: diameter,
