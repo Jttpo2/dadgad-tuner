@@ -13,7 +13,7 @@ export class Tuner extends Component {
 
     this.state = {
       isPlaying: false,
-      currentStringIndex: 0
+      currentString: this.props.strings[0]
     }
 
     this.soundLibrary = new SoundLibrary();
@@ -32,15 +32,14 @@ export class Tuner extends Component {
     this.stop();
   }
 
-  _playString(index) {
-    this.setState({
-      currentStringIndex: index
-    });
-    this._play(this.props.strings[index]);
-  }
+  // _playString(index) {
+  //
+  //   this._play(this.props.strings[index]);
+  // }
 
   _play(string) {
     this.setState({
+      currentString: string,
       isPlaying: true
     });
     this.soundPlayer.playAndLoop(this.soundLibrary.getPathTo(string.note));
@@ -54,21 +53,11 @@ export class Tuner extends Component {
   }
 
   _nextString() {
-    let currentStringIndex = this.state.currentStringIndex;
-    currentStringIndex++;
-
-    if (currentStringIndex === this.props.strings.length) currentStringIndex = 0;
-    // this.setState({
-    //     currentStringIndex: currentStringIndex
-    // });
-
-    console.log(currentStringIndex);
-    // this._play(this.props.strings[currentStringIndex]);
-    this._playString(currentStringIndex);
-  }
-
-  _getCurrentNote() {
-    return this.props.strings[this.state.currentStringIndex];
+    let currentStringIndex = this.props.strings.indexOf(this.state.currentString);
+    let stringToPlayIndex = currentStringIndex + 1;
+    if (stringToPlayIndex === this.props.strings.length) stringToPlayIndex = 0;
+    console.log(stringToPlayIndex);
+    this._play(this.props.strings[stringToPlayIndex]);
   }
 
   componentDidMount() {
