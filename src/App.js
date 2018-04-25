@@ -14,7 +14,8 @@ class App extends Component {
 
   initStrings() {
     // let stringNames = ['D1', 'A1'];//, 'D2', 'G1', 'A2', 'D3'];
-    let stringNames = ['D1', 'A1', 'D2', 'G1', 'A2', 'D3'];
+    // let stringNames = ['D1', 'A1', 'D2', 'G1', 'A2', 'D3'];
+    let stringNames = ['E1', 'A1', 'D1', 'G1', 'B1', 'E2'];
     return stringNames.map((stringName) => {
       return new InstrumentString(new Note(stringName));
     });
