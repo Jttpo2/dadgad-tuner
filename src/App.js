@@ -30,7 +30,7 @@ class App extends Component {
           <h1 style={styles.title}>DADGAD tuner</h1>
         </header>
         <Tuner strings={this._strings}></Tuner>
-    </StyleRoot>
+      </StyleRoot>
     );
   }
 }
@@ -39,10 +39,10 @@ export default App;
 
 const styles = {
   container: {
-      height: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      flexFlow: 'column'
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    flexFlow: 'column'
   },
   header: {
     backgroundColor: Constants.primaryColor,

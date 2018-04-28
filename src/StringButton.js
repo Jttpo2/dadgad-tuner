@@ -52,11 +52,11 @@ class StringButton extends Component {
   const activeScale = 1.25;
   const pulseScale = 1.1;
 
-var pulseKeyframes = Radium.keyframes({
-'0%': {transform: 'scale(' + activeScale + ')'},
-'50%': {transform: 'scale(' + pulseScale + ')'},
-'100%': {transform: 'scale(' + activeScale + ')'},
-}, 'pulse');
+  var pulseKeyframes = Radium.keyframes({
+    '0%': {transform: 'scale(' + activeScale + ')'},
+    '50%': {transform: 'scale(' + pulseScale + ')'},
+    '100%': {transform: 'scale(' + activeScale + ')'},
+  }, 'pulse');
 
   const styles = {
     stringButton: {
