@@ -26,8 +26,8 @@ class App extends Component {
   render() {
     return (
       <StyleRoot style={styles.container}>
-        <header style={styles.header}>
-          <h1 style={styles.title}>DADGAD tuner</h1>
+         <header style={styles.header}>
+           <h1 style={styles.title}>DADGAD tuner</h1>
         </header>
         <Tuner strings={this._strings}></Tuner>
       </StyleRoot>
@@ -46,7 +46,7 @@ const styles = {
   },
   header: {
     backgroundColor: Constants.primaryColor,
-    flex: 0.2,
+    flex: 0.15,
     color: 'white',
 
     display: 'flex',

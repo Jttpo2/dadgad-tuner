@@ -91,10 +91,11 @@ class Tuner extends Component {
     }
   }
 
-  // const buttonSideMargin = '15px';
   const styles = {
     container: {
       // background: 'yellow',
+      // background: 'linear-gradient(to bottom right, ' + Constants.background1  + ' ' + Constants.bg1GradientPercentage + ', ' + Constants.background2 + ')',
+      background: 'linear-gradient(to bottom right, ' + Constants.background1  + ' ' + Constants.bg1GradientPercentage + ', ' + Constants.background2 + ')',
       height: '100%',
       display: 'flex',
       flexFlow: 'row',
@@ -105,7 +106,7 @@ class Tuner extends Component {
     },
     stringButtonContainer: {
       // background: 'blue',
-      height: '98%',
+      height: '95%',
 
       display: 'flex',
       flexDirection: 'column',
@@ -125,6 +126,7 @@ class Tuner extends Component {
       borderStyle: 'none',
       color: Constants.primaryColor,
       fontSize: Constants.controlButtonFontSize,
+      textShadow: '0px 0px 11px rgba(255, 255, 255, 0.6)',
       background: 'none',
 
       ':focus': {

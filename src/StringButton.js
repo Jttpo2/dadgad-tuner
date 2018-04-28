@@ -33,12 +33,10 @@ class StringButton extends Component {
 
   export default Radium(StringButton);
 
-  const activeScalar = 1.3;
   const diameter = 11;
   const sizeUnit = 'vh';
-  const fontSize =  diameter * 5/11;
+  const fontSize =  diameter * 5/diameter;
   const fontSizeUnit = 'vh';
-
 
   const shadowLength = 0;
   const activeShadowLength = shadowLength + 2;
