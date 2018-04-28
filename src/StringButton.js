@@ -39,7 +39,6 @@ class StringButton extends Component {
   const fontSize =  diameter * 5/11;
   const fontSizeUnit = 'vh';
 
-  const transitionTime = 0.3;
 
   const shadowLength = 0;
   const activeShadowLength = shadowLength + 2;
@@ -47,7 +46,9 @@ class StringButton extends Component {
   const activeBlur = 30;
   const shadowColor = 'grey';
 
-  const pulseTime = 1000;
+  const transitionTime = 0.35;
+
+  const pulseTime = 1100;
   const activeScale = 1.25;
   const pulseScale = 1.1;
 
