@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { StyleRoot } from 'radium';
+
 import Constants from './Constants.js';
 import InstrumentString from './InstrumentString.js';
 import Note from './Note.js';
@@ -23,12 +25,12 @@ class App extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <StyleRoot style={styles.container}>
         <header style={styles.header}>
           <h1 style={styles.title}>DADGAD tuner</h1>
         </header>
         <Tuner strings={this._strings}></Tuner>
-      </div>
+    </StyleRoot>
     );
   }
 }
