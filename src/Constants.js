@@ -50,13 +50,18 @@ const base = {
 
 const Constants = {
   primaryColor: base.primaryColor,
+  headerColor1: base.primaryColor,
+  headerColor2: Color(base.primaryColor).darken(0.2),
+  headerGradientPercentage: '50%',
+  headerTextColor: 'white',
   stringButtonColor1: base.primaryColor,
-  stringButtonColor2: Color(base.primaryColor).darken(0.4),
+  stringButtonColor2: Color(base.primaryColor).darken(0.3),
   stringButtonGradientPercentage: '63%',
   controlButtonFontSize: '1.5em',
   background1: usedGradient.col1,
   background2: usedGradient.col2,
-  bg1GradientPercentage: '50%'
+  bg1GradientPercentage: '50%',
+  controlButtonTextColor: base.primaryColor
 }
 
 if (Object.freeze) Object.freeze(Constants);
