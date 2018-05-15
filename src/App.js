@@ -47,9 +47,9 @@ const styles = {
     flexFlow: 'column'
   },
   header: {
-    backgroundColor: Constants.primaryColor,
+    background: 'linear-gradient(to bottom right, ' + Constants.headerColor1  + ' ' + Constants.headerGradientPercentage + ', ' + Constants.headerColor2 + ')',
     flex: 0.15,
-    color: 'white',
+    color: Constants.headerTextColor,
 
     display: 'flex',
     flexFlow: 'column',

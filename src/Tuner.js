@@ -124,7 +124,7 @@ class Tuner extends Component {
       // transform: 'translateY(-50%)',
 
       borderStyle: 'none',
-      color: Constants.primaryColor,
+      color: Constants.controlButtonTextColor,
       fontSize: Constants.controlButtonFontSize,
       textShadow: '0px 0px 11px rgba(255, 255, 255, 0.6)',
       background: 'none',
