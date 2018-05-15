@@ -69,76 +69,78 @@ class Tuner extends Component {
 
     let stringButtons = [];
     this.props.strings.forEach((string) => {
-        stringButtons.push(
-          <StringButton
-            string={string}
-            isActive={this.state.currentString === string}
-            isPlaying={this.state.currentString === string && this.state.isPlaying}
-            key={string.id}
-            handleButtonClick={this.stringButtonClicked.bind(this, string)}
-          />);
-    });
+      stringButtons.push(
+        <StringButton
+          string={string}
+          isActive={this.state.currentString === string}
+          isPlaying={this.state.currentString === string && this.state.isPlaying}
+          key={string.id}
+          handleButtonClick={this.stringButtonClicked.bind(this, string)}
+        />);
+      });
 
-    return (
-      <div style={styles.container}>
-        <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle} key='stopbutton'>Stop</button>
-        <div style={styles.stringButtonContainer}>
-          {stringButtons}
+      return (
+        <div style={styles.container}>
+          <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle} key='stopbutton'>Stop</button>
+          <div style={styles.stringButtonContainer}>
+            {stringButtons}
+          </div>
+          <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle} key='nextButton'>Next</button>
         </div>
-        <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle} key='nextButton'>Next</button>
-      </div>
-    );
-  }
-}
-
-// const buttonSideMargin = '15px';
-const styles = {
-  container: {
-    // background: 'yellow',
-    height: '100%',
-    display: 'flex',
-    flexFlow: 'row',
-    // justifyContent: 'space-evenly',
-    alignItems: 'center',
-
-    flex: 1
-  },
-  stringButtonContainer: {
-    // background: 'blue',
-    height: '98%',
-
-    display: 'flex',
-    flexDirection: 'column',
-    // justifyContent: 'space-evenly',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    flex: 0.5
-  },
-  controlButton : {
-    position: 'relative',
-    height: '100%',
-    flex: 0.5,
-    // width: '20%',
-    // top: '50%',
-    // transform: 'translateY(-50%)',
-
-    borderStyle: 'none',
-    color: Constants.primaryColor,
-    fontSize: Constants.controlButtonFontSize,
-    background: 'none',
-
-    ':focus': {
-      outline: 'none'
+      );
     }
-  },
-  stopButton: {
-    // left: buttonSideMargin,
-    // background: 'green',
-  },
-  nextButton: {
-    // right: buttonSideMargin,
-    // background: 'grey'
   }
-}
 
-export default Radium(Tuner);
+  const styles = {
+    container: {
+      // background: 'yellow',
+      // background: 'linear-gradient(to bottom right, ' + Constants.background1  + ' ' + Constants.bg1GradientPercentage + ', ' + Constants.background2 + ')',
+      background: 'linear-gradient(to bottom right, ' + Constants.background1  + ' ' + Constants.bg1GradientPercentage + ', ' + Constants.background2 + ')',
+      height: '100%',
+      display: 'flex',
+      flexFlow: 'row',
+      // justifyContent: 'space-evenly',
+      alignItems: 'center',
+
+      flex: 1
+    },
+    stringButtonContainer: {
+      // background: 'blue',
+      height: '95%',
+
+      display: 'flex',
+      flexDirection: 'column',
+      // justifyContent: 'space-evenly',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      flex: 0.5
+    },
+    controlButton : {
+      position: 'relative',
+      height: '100%',
+      flex: 0.5,
+      // width: '20%',
+      // top: '50%',
+      // transform: 'translateY(-50%)',
+
+      borderStyle: 'none',
+      color: Constants.primaryColor,
+      fontSize: Constants.controlButtonFontSize,
+      textShadow: '0px 0px 11px rgba(255, 255, 255, 0.6)',
+      background: 'none',
+
+      ':focus': {
+        outline: 'none'
+      }
+    },
+    stopButton: {
+      // left: buttonSideMargin,
+      // background: 'green',
+    },
+    nextButton: {
+      // right: buttonSideMargin,
+      // background: 'grey'
+    }
+  }
+
+  export default Radium(Tuner);

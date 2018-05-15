@@ -2,8 +2,8 @@
 // https://freesound.org/people/SpeedY/packs/469/
 
 const fileTypes = {
-    mp3: '.mp3',
-    wav: '.wav'
+  mp3: '.mp3',
+  wav: '.wav'
 };
 
 export default class SoundLibrary {

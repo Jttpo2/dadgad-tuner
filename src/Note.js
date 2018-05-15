@@ -35,4 +35,4 @@ export default class Note {
   toString() {
     return this._sPNName;
   }
- }
+}

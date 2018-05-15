@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
+import { StyleRoot } from 'radium';
+
 import Constants from './Constants.js';
 import InstrumentString from './InstrumentString.js';
 import Note from './Note.js';
 import Tuner from './Tuner.js';
+import AdComponent from './AdComponent.js';
 
 class App extends Component {
   constructor(props) {
@@ -23,12 +26,13 @@ class App extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
-        <header style={styles.header}>
-          <h1 style={styles.title}>DADGAD tuner</h1>
+      <StyleRoot style={styles.container}>
+         <header style={styles.header}>
+           <h1 style={styles.title}>DADGAD tuner</h1>
         </header>
         <Tuner strings={this._strings}></Tuner>
-      </div>
+        <AdComponent></AdComponent>
+      </StyleRoot>
     );
   }
 }
@@ -37,14 +41,14 @@ export default App;
 
 const styles = {
   container: {
-      height: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      flexFlow: 'column'
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    flexFlow: 'column'
   },
   header: {
     backgroundColor: Constants.primaryColor,
-    flex: 0.2,
+    flex: 0.15,
     color: 'white',
 
     display: 'flex',

@@ -12,11 +12,11 @@ export default class SoundPlayer {
     this.stop();
     if (!soundUrl) {
       console.log('Can\'t play undefined audio.');
-        return;
-      }
+      return;
+    }
     this.audioElement.src = soundUrl;
     this.audioElement.loop = true;
-    this.audioElement.play();
+    // this.audioElement.play();
     console.log('Playing sound: ' + soundUrl);
   }
 
