@@ -6,6 +6,7 @@ import Constants from './Constants.js';
 import InstrumentString from './InstrumentString.js';
 import Note from './Note.js';
 import Tuner from './Tuner.js';
+import AdComponent from './AdComponent.js';
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
            <h1 style={styles.title}>DADGAD tuner</h1>
         </header>
         <Tuner strings={this._strings}></Tuner>
+        <AdComponent></AdComponent>
       </StyleRoot>
     );
   }
