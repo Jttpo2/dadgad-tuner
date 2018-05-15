@@ -26,6 +26,10 @@ const gradients = {
   heavyRain: {
     col1: '#e2ebf0',
     col2: '#cfd9df'
+  },
+  passion: {
+    col1: '#e53935',
+    col2: '#e35d5b'
   }
 }
 
@@ -33,6 +37,7 @@ const gradients = {
 // let usedGradient = gradients.everlastingSky;
 let usedGradient = gradients.cloudyKnoxville;
 // let usedGradient = gradients.heavyRain;
+// let usedGradient = gradients.passion;
 // let usedGradient = gradients.none;
 
 const Constants = {
