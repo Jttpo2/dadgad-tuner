@@ -58,14 +58,15 @@ class Tuner extends Component {
   }
 
   render() {
-    const stopButtonStyle = Object.assign({},
+    const stopButtonStyle = [
       styles.controlButton,
       styles.stopButton
-    );
-    const nextButtonStyle = Object.assign({},
+    ];
+
+    const nextButtonStyle = [
       styles.controlButton,
       styles.nextButton
-    );
+    ];
 
     let stringButtons = [];
     this.props.strings.forEach((string) => {
