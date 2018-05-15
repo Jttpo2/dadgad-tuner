@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
+- Google adsense added.
+- Google analytics added.
 - String buttons enlargen when active and pulsate while playing.
 
 ## [0.2.1] - 2018-04-25
