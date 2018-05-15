@@ -58,7 +58,8 @@ class StringButton extends Component {
 
   const styles = {
     stringButton: {
-      background: Constants.stringButtonColor,
+      background: Constants.stringButtonColor1,
+      background: 'radial-gradient(' + Constants.stringButtonColor1 + ' ' + Constants.stringButtonGradientPercentage + ', ' + Constants.stringButtonColor2 + ')',
       // flex: 0.07,
       width: diameter + sizeUnit,
       height: diameter + sizeUnit,

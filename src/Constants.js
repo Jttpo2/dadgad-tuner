@@ -1,3 +1,5 @@
+import Color from 'color';
+
 const gradients = {
   none: {
     col1: 'rgba(0,0,0,0)',
@@ -40,11 +42,17 @@ let usedGradient = gradients.cloudyKnoxville;
 // let usedGradient = gradients.passion;
 // let usedGradient = gradients.none;
 
-const Constants = {
+const base = {
   primaryColor: '#f52222',
   //     // #cc1111
   //     // #f55555,
-  stringButtonColor: '#f52222',
+}
+
+const Constants = {
+  primaryColor: base.primaryColor,
+  stringButtonColor1: base.primaryColor,
+  stringButtonColor2: Color(base.primaryColor).darken(0.4),
+  stringButtonGradientPercentage: '63%',
   controlButtonFontSize: '1.5em',
   background1: usedGradient.col1,
   background2: usedGradient.col2,
