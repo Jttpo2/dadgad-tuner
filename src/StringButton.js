@@ -2,6 +2,8 @@ import Radium from 'radium';
 import React, { Component } from 'react';
 
 import Constants from './Constants.js';
+import Colors from './Colors.js';
+import MediaQueries from './MediaQueries.js';
 
 class StringButton extends Component {
   constructor(props) {
@@ -33,10 +35,10 @@ class StringButton extends Component {
 
   export default Radium(StringButton);
 
-  const diameter = 11;
-  const sizeUnit = 'vh';
+  const diameter = Constants.stringButtonDiameter;
+  const sizeUnit = 'vmax';
   const fontSize =  diameter * 5/diameter;
-  const fontSizeUnit = 'vh';
+  const fontSizeUnit = 'vmax';
 
   const shadowLength = 0;
   const activeShadowLength = shadowLength + 2;
@@ -47,7 +49,7 @@ class StringButton extends Component {
   const transitionTime = 0.35;
 
   const pulseTime = 1100;
-  const activeScale = 1.25;
+  const activeScale = 1.18;
   const pulseScale = 1.1;
 
   var pulseKeyframes = Radium.keyframes({
@@ -58,15 +60,17 @@ class StringButton extends Component {
 
   const styles = {
     stringButton: {
-      background: 'radial-gradient(' + Constants.stringButtonColor1 + ' ' + Constants.stringButtonGradientPercentage + ', ' + Constants.stringButtonColor2 + ')',
+      background: 'radial-gradient(' + Colors.stringButtonColor1 + ' ' + Colors.stringButtonGradientPercentage + ', ' + Colors.stringButtonColor2 + ')',
       // flex: 0.07,
+
       width: diameter + sizeUnit,
       height: diameter + sizeUnit,
+      fontSize: fontSize + fontSizeUnit,
+
       borderRadius: '50%',
       borderStyle: 'none',
 
-      fontSize: fontSize + fontSizeUnit,
-      color: 'white',
+      color: Colors.stringButtonText,
       fontFamily: 'helvetica, sans-serif',
 
       transition: 'all ' + transitionTime + 's',
@@ -76,6 +80,12 @@ class StringButton extends Component {
 
       ':focus': {
         outline: 'none'
+      },
+      [MediaQueries.portrait]: {
+
+      },
+      [MediaQueries.landscape]: {
+
       }
     },
     active: {
