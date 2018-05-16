@@ -44,6 +44,7 @@ let usedGradient = gradients.cloudyKnoxville;
 
 const base = {
   primaryColor: '#f52222',
+  textLight: '#ffffff'
   //     // #cc1111
   //     // #f55555,
 }
@@ -53,14 +54,17 @@ const Colors = {
   headerColor1: base.primaryColor,
   headerColor2: Color(base.primaryColor).darken(0.2),
   headerGradientPercentage: '50%',
-  headerTextColor: 'white',
+  headerTextColor: base.textLight,
   stringButtonColor1: base.primaryColor,
   stringButtonColor2: Color(base.primaryColor).darken(0.3),
   stringButtonGradientPercentage: '63%',
+  stringButtonText: base.textLight,
   background1: usedGradient.col1,
   background2: usedGradient.col2,
   bg1GradientPercentage: '50%',
-  controlButtonTextColor: base.primaryColor
+  controlButtonTextColor: base.primaryColor,
+  adBackground: '#f0f0f0cc',
+  adText: 'lightgrey'
 }
 
 if (Object.freeze) Object.freeze(Colors);
