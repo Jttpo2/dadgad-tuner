@@ -83,11 +83,13 @@ class Tuner extends Component {
 
       return (
         <div style={styles.container}>
-          <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle} key='stopbutton'>Stop</button>
           <div style={styles.stringButtonContainer}>
             {stringButtons}
           </div>
-          <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle} key='nextButton'>Next</button>
+          <div style={styles.controlButtonContainer}>
+            <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle} key='stopbutton'>Stop</button>
+            <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle} key='nextButton'>Next</button>
+          </div>
         </div>
       );
     }
@@ -98,32 +100,52 @@ class Tuner extends Component {
       // background: 'yellow',
       // background: 'linear-gradient(to bottom right, ' + Constants.background1  + ' ' + Constants.bg1GradientPercentage + ', ' + Constants.background2 + ')',
       background: 'linear-gradient(to bottom right, ' + Constants.background1  + ' ' + Constants.bg1GradientPercentage + ', ' + Constants.background2 + ')',
-      height: '100%',
-      display: 'flex',
-      flexFlow: 'row',
-      // justifyContent: 'space-evenly',
-      alignItems: 'center',
-
-      flex: 1
-    },
-    stringButtonContainer: {
-      // background: 'blue',
-      height: '95%',
-
-      display: 'flex',
-      flexDirection: 'column',
-      // justifyContent: 'space-evenly',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      flex: 0.5
-    },
-    controlButton : {
       position: 'relative',
       height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+
+      flex: 1,
+      [MediaQueries.portrait]: {
+        // flexFlow: 'row'
+      },
+      [MediaQueries.landscape]: {
+        // flexFlow: 'column'
+      }
+    },
+    stringButtonContainer: {
+      // background: 'yellow',
+      height: '100%',
+
+      display: 'flex',
+
+      [MediaQueries.portrait]: {
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+      },
+      [MediaQueries.landscape]: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        flex: 1
+      },
+      zIndex: 1
+
+
+    },
+    controlButtonContainer: {
+      position: 'absolute',
+      height: '100%',
+      width: '100%',
+
+      display: 'flex',
+      flexFlow: 'row',
+      zIndex: 0,
+    },
+    controlButton : {
+      height: '100%',
       flex: 0.5,
-      // width: '20%',
-      // top: '50%',
-      // transform: 'translateY(-50%)',
 
       borderStyle: 'none',
       color: Constants.controlButtonTextColor,
@@ -133,14 +155,20 @@ class Tuner extends Component {
 
       ':focus': {
         outline: 'none'
+      },
+      [MediaQueries.landscape]: {
+        // flex: 0.2
       }
+
+
     },
     stopButton: {
-      // left: buttonSideMargin,
       // background: 'green',
+      [MediaQueries.portrait]: {
+        // order: '-1'
+      }
     },
     nextButton: {
-      // right: buttonSideMargin,
       // background: 'grey'
     }
   }
