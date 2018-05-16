@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 
-## [0.4.1] - 2018-05-16
+## [0.4.0] - 2018-05-16
 - Responsive design.
 - Ad placeholder.
 
