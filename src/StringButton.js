@@ -33,7 +33,7 @@ class StringButton extends Component {
 
   export default Radium(StringButton);
 
-  const diameter = 11;
+  const diameter = 10.5;
   const sizeUnit = 'vh';
   const fontSize =  diameter * 5/diameter;
   const fontSizeUnit = 'vh';
@@ -47,7 +47,7 @@ class StringButton extends Component {
   const transitionTime = 0.35;
 
   const pulseTime = 1100;
-  const activeScale = 1.25;
+  const activeScale = 1.18;
   const pulseScale = 1.1;
 
   var pulseKeyframes = Radium.keyframes({

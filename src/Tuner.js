@@ -116,7 +116,7 @@ class Tuner extends Component {
     },
     stringButtonContainer: {
       // background: 'yellow',
-      height: '100%',
+      height: '95%',
 
       display: 'flex',
 
