@@ -7,7 +7,7 @@ import Colors from './Colors.js';
 import InstrumentString from './InstrumentString.js';
 import Note from './Note.js';
 import Tuner from './Tuner.js';
-import AdComponent from './AdComponent.js';
+// import AdComponent from './AdComponent.js';
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +32,8 @@ class App extends Component {
            <h1 style={styles.title}>DADGAD tuner</h1>
         </header>
         <Tuner strings={this._strings}></Tuner>
-        <AdComponent></AdComponent>
+        {/* <AdComponent></AdComponent> */}
+        <div style={styles.copyright}>©2018 by <a href={'mailto:' + Constants.mailtoAddress} style={styles.copyrightLink}>John Petersson</a></div>
       </StyleRoot>
     );
   }
@@ -60,5 +61,17 @@ const styles = {
   },
   title: {
     fontSize: Constants.headerFontSize
+  },
+  copyright: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    color: Colors.copyright,
+    fontSize: Constants.copyrightFontSize,
+    fontFamily: Constants.copyrightFont
+  },
+  copyrightLink: {
+    color: Colors.copyright
   }
+
 }

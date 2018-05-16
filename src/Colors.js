@@ -64,7 +64,8 @@ const Colors = {
   bg1GradientPercentage: '50%',
   controlButtonTextColor: base.primaryColor,
   adBackground: '#f0f0f0cc',
-  adText: 'lightgrey'
+  adText: 'lightgrey',
+  copyright: 'lightGrey'
 }
 
 if (Object.freeze) Object.freeze(Colors);
