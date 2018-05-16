@@ -5,6 +5,7 @@ import Constants from './Constants.js';
 import StringButton from './StringButton.js';
 import SoundLibrary from './SoundLibrary.js';
 import SoundPlayer from './SoundPlayer.js';
+import MediaQueries from './MediaQueries.js';
 
 class Tuner extends Component {
   constructor(props) {
