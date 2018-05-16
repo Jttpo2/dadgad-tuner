@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { StyleRoot } from 'radium';
 
 import Constants from './Constants.js';
+import Colors from './Colors.js';
 import InstrumentString from './InstrumentString.js';
 import Note from './Note.js';
 import Tuner from './Tuner.js';
@@ -47,9 +48,10 @@ const styles = {
     flexFlow: 'column'
   },
   header: {
-    background: 'linear-gradient(to bottom right, ' + Constants.headerColor1  + ' ' + Constants.headerGradientPercentage + ', ' + Constants.headerColor2 + ')',
+    background: 'linear-gradient(to bottom right, ' + Colors.headerColor1  + ' ' + Colors.headerGradientPercentage + ', ' + Colors.headerColor2 + ')',
     flex: 0.15,
-    color: Constants.headerTextColor,
+    minHeight: '50px',
+    color: Colors.headerTextColor,
 
     display: 'flex',
     flexFlow: 'column',
@@ -57,6 +59,6 @@ const styles = {
     alignItems: 'center'
   },
   title: {
-    fontSize: '1.5em'
+    fontSize: Constants.headerFontSize
   }
 }

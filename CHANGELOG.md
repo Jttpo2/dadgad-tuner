@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [0.4.1] - 2018-05-16
+- Responsive design.
+- Ad placeholder.
+
 ## [0.3.1] - 2018-05-15
 - Google adsense added.
 - Google analytics added.
