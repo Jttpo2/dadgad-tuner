@@ -70,7 +70,6 @@ class StringButton extends Component {
       borderRadius: '50%',
       borderStyle: 'none',
 
-
       color: 'white',
       fontFamily: 'helvetica, sans-serif',
 

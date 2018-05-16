@@ -70,6 +70,15 @@ class Tuner extends Component {
       styles.nextButton
     ];
 
+    const stopButtonTextStyle = [
+      styles.ctrlButtonText,
+      styles.stopButtonText
+    ];
+    const nextButtonTextStyle = [
+      styles.nextButtonText,
+      styles.ctrlButtonText
+    ]
+
     let stringButtons = [];
     this.props.strings.forEach((string) => {
       stringButtons.push(
@@ -88,8 +97,8 @@ class Tuner extends Component {
             {stringButtons}
           </div>
           <div style={styles.controlButtonContainer}>
-            <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle} key='stopbutton'><div style={styles.ctrlButtonText}>Stop</div></button>
-            <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle} key='nextButton'><div style={styles.ctrlButtonText}>Next</div></button>
+            <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle} key='stopbutton'><div style={stopButtonTextStyle}>Stop</div></button>
+            <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle} key='nextButton'><div style={nextButtonTextStyle}>Next</div></button>
           </div>
         </div>
       );
@@ -97,11 +106,11 @@ class Tuner extends Component {
   }
 
   const goldenRatioAdAdjustment = 7;
+  const ctrlButtonTextOffset = 5;
 
   const styles = {
     container: {
       // background: 'yellow',
-      // background: 'linear-gradient(to bottom right, ' + Colors.background1  + ' ' + Colors.bg1GradientPercentage + ', ' + Colors.background2 + ')',
       background: 'linear-gradient(to bottom right, ' + Colors.background1  + ' ' + Colors.bg1GradientPercentage + ', ' + Colors.background2 + ')',
       position: 'relative',
       height: '100%',
@@ -111,19 +120,18 @@ class Tuner extends Component {
 
       flex: 1,
       [MediaQueries.portrait]: {
-        // flexFlow: 'row'
       },
       [MediaQueries.landscape]: {
-        // flexFlow: 'column'
       }
     },
     stringButtonContainer: {
       // background: 'yellow',
-
       display: 'flex',
 
       [MediaQueries.portrait]: {
-        height: '95%',
+        flex: 0.25,
+
+        height: '90%',
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'center',
@@ -139,8 +147,6 @@ class Tuner extends Component {
         flex: 0.8
       },
       zIndex: 1
-
-
     },
     controlButtonContainer: {
       position: 'absolute',
@@ -169,20 +175,15 @@ class Tuner extends Component {
       [MediaQueries.landscape]: {
 
       },
-
       [MediaQueries.breakpointLarge]: {
-        // fontSize: Constants.controlButtonFontSizeLarge
       },
-
       display: 'flex',
       flexFlow: 'column',
       justifyContent: 'center',
       alignItems: 'center'
-
     },
     stopButton: {
       // background: 'green',
-
     },
     nextButton: {
       // background: 'grey'
@@ -191,9 +192,19 @@ class Tuner extends Component {
       [MediaQueries.landscape]: {
         position: 'relative',
         top: Constants.stringButtonDiameter + 0 + goldenRatioAdAdjustment + 'vh',
-        // flex: 0
       }
-
+    },
+    stopButtonText: {
+      [MediaQueries.portrait]: {
+        position: 'relative',
+        right: ctrlButtonTextOffset + 'vw'
+      }
+    },
+    nextButtonText: {
+      [MediaQueries.portrait]: {
+      position: 'relative',
+      left: ctrlButtonTextOffset + 'vw'
+    }
     }
   }
 
