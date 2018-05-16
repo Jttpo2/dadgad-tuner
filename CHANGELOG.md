@@ -5,8 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
+- Shortened string samples to 3.5s (from 4.0s).
 
-## [0.4.1] - 2018-05-16
+## [0.4.0] - 2018-05-16
 - Responsive design.
 - Ad placeholder.
 
