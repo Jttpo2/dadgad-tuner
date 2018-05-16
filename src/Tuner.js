@@ -2,6 +2,7 @@ import Radium from 'radium';
 import React, { Component } from 'react';
 
 import Constants from './Constants.js';
+import Colors from './Colors.js';
 import StringButton from './StringButton.js';
 import SoundLibrary from './SoundLibrary.js';
 import SoundPlayer from './SoundPlayer.js';
@@ -87,19 +88,21 @@ class Tuner extends Component {
             {stringButtons}
           </div>
           <div style={styles.controlButtonContainer}>
-            <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle} key='stopbutton'>Stop</button>
-            <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle} key='nextButton'>Next</button>
+            <button onClick={this.stopClicked.bind(this)} style={stopButtonStyle} key='stopbutton'><div style={styles.ctrlButtonText}>Stop</div></button>
+            <button onClick={this.nextClicked.bind(this)} style={nextButtonStyle} key='nextButton'><div style={styles.ctrlButtonText}>Next</div></button>
           </div>
         </div>
       );
     }
   }
 
+  const goldenRatioAdAdjustment = 7;
+
   const styles = {
     container: {
       // background: 'yellow',
-      // background: 'linear-gradient(to bottom right, ' + Constants.background1  + ' ' + Constants.bg1GradientPercentage + ', ' + Constants.background2 + ')',
-      background: 'linear-gradient(to bottom right, ' + Constants.background1  + ' ' + Constants.bg1GradientPercentage + ', ' + Constants.background2 + ')',
+      // background: 'linear-gradient(to bottom right, ' + Colors.background1  + ' ' + Colors.bg1GradientPercentage + ', ' + Colors.background2 + ')',
+      background: 'linear-gradient(to bottom right, ' + Colors.background1  + ' ' + Colors.bg1GradientPercentage + ', ' + Colors.background2 + ')',
       position: 'relative',
       height: '100%',
       display: 'flex',
@@ -116,19 +119,24 @@ class Tuner extends Component {
     },
     stringButtonContainer: {
       // background: 'yellow',
-      height: '95%',
 
       display: 'flex',
 
       [MediaQueries.portrait]: {
+        height: '95%',
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'center',
+        // flex: 0.9,
       },
       [MediaQueries.landscape]: {
+        position: 'relative',
+        top: -(Constants.goldenRatio - 1.5) * 100 + goldenRatioAdAdjustment + 'vh',
+
         flexDirection: 'row',
         alignItems: 'center',
-        flex: 1
+        justifyContent: 'space-around',
+        flex: 0.8
       },
       zIndex: 1
 
@@ -144,32 +152,48 @@ class Tuner extends Component {
       zIndex: 0,
     },
     controlButton : {
-      height: '100%',
       flex: 0.5,
 
       borderStyle: 'none',
-      color: Constants.controlButtonTextColor,
-      fontSize: Constants.controlButtonFontSize,
+      color: Colors.controlButtonTextColor,
+      fontSize: Constants.controlButtonFontSizeStandard,
       textShadow: '0px 0px 11px rgba(255, 255, 255, 0.6)',
       background: 'none',
 
       ':focus': {
         outline: 'none'
       },
+      [MediaQueries.portrait]: {
+        height: '100%',
+      },
       [MediaQueries.landscape]: {
-        // flex: 0.2
-      }
 
+      },
+
+      [MediaQueries.breakpointLarge]: {
+        // fontSize: Constants.controlButtonFontSizeLarge
+      },
+
+      display: 'flex',
+      flexFlow: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
 
     },
     stopButton: {
       // background: 'green',
-      [MediaQueries.portrait]: {
-        // order: '-1'
-      }
+
     },
     nextButton: {
       // background: 'grey'
+    },
+    ctrlButtonText: {
+      [MediaQueries.landscape]: {
+        position: 'relative',
+        top: Constants.stringButtonDiameter + 0 + goldenRatioAdAdjustment + 'vh',
+        // flex: 0
+      }
+
     }
   }
 

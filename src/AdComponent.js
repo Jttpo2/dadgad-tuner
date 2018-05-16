@@ -29,6 +29,7 @@ export default class AdComponent extends React.Component {
 const styles = {
   ad: {
     height: '6em',
+    maxHeight: '20%',
     display: 'flex',
     // alignSelf: 'flex-end',
 
