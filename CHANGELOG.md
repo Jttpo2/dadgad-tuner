@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
+
+## [0.5.0] - 2018-05-19
 - Shortened string samples to 3.5s (from 4.0s).
 - Header redesign.
 
