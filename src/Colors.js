@@ -42,27 +42,67 @@ let usedGradient = gradients.cloudyKnoxville;
 // let usedGradient = gradients.passion;
 // let usedGradient = gradients.none;
 
-const base = {
-  primaryColor: '#f52222',
-  textLight: '#ffffff'
-  //     // #cc1111
-  //     // #f55555,
+const original = {
+  background: '#fdfbfb',
+  primary: '#f52222',
+  secondary: '#f52222',
+  textLight: 'white'
 }
 
+const sharpAndModern = {
+  background: '#fdfbfb',
+  primary: '#3cc47c',
+  secondary: '#1e392a',
+  tertiary: '#828081',
+  accent: '#e9c893',
+  textLight: 'white'
+}
+
+const retro = {
+  // background: '#fdfbfb',
+  background: '#fedc3d',
+  primary: '#000000',
+  secondary: '#01abaa',
+  tertiary: '#fea680',
+  textLight: 'white'
+}
+
+const tropicalTones = {
+  background: '#eab126',
+  primary: '#f24c4e',
+  secondary: '#1fb58f',
+  tertiary: '1b7b34',
+  accent: '',
+  textLight: 'white'
+}
+
+const modernMinimal = {
+  background: '#eddbcd',
+  primary: '#c06014',
+  secondary: '#000000',
+  tertiary: '#cdcdcd',
+  accent: '',
+  textLight: 'white'
+}
+
+const base = original;
+
 const Colors = {
-  primaryColor: base.primaryColor,
-  headerColor1: base.primaryColor,
-  headerColor2: Color(base.primaryColor).darken(0.2),
+  primaryColor: base.primary,
+  // headerColor1: base.secondary,
+  // headerColor2: Color(base.secondary).darken(0.2),
+  headerColor1: 'none',
+  headerColor2: 'none',
   headerGradientPercentage: '50%',
-  headerTextColor: base.textLight,
-  stringButtonColor1: base.primaryColor,
-  stringButtonColor2: Color(base.primaryColor).darken(0.3),
+  headerTextColor: base.primary,
+  stringButtonColor1: base.primary,
+  stringButtonColor2: Color(base.primary).darken(0.3),
   stringButtonGradientPercentage: '63%',
   stringButtonText: base.textLight,
-  background1: usedGradient.col1,
-  background2: usedGradient.col2,
+  background1: base.background,
+  background2: Color(base.background).darken(0.04),
   bg1GradientPercentage: '50%',
-  controlButtonTextColor: base.primaryColor,
+  controlButtonTextColor: base.primary,
   adBackground: '#f0f0f0cc',
   adText: 'lightgrey',
   copyright: 'lightGrey'
