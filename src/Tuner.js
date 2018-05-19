@@ -105,13 +105,13 @@ class Tuner extends Component {
     }
   }
 
-  const goldenRatioAdAdjustment = 7;
+  const goldenRatioAdAdjustment = 0; // Offset to position row of string buttons nicely (in landscape) when ads are added in bottom of window
   const ctrlButtonTextOffset = 5;
 
   const styles = {
     container: {
       // background: 'yellow',
-      background: 'linear-gradient(to bottom right, ' + Colors.background1  + ' ' + Colors.bg1GradientPercentage + ', ' + Colors.background2 + ')',
+        // background: 'linear-gradient(to bottom right, ' + Colors.background1  + ' ' + Colors.bg1GradientPercentage + ', ' + Colors.background2 + ')',
       position: 'relative',
       height: '100%',
       display: 'flex',
